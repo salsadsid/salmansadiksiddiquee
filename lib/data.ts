@@ -33,6 +33,9 @@ export const personalInfo = {
   phone: "+8801780666043",
   github: "salsadsid",
   linkedin: "salsadsid",
+  twitter: "salsadsid",
+  instagram: "salsadsid",
+  stackoverflow: "yourusername",
   location: "Bangladesh",
   bio: "Passionate Full Stack Developer with expertise in building scalable web applications using modern technologies. Specialized in MERN stack with a strong focus on creating efficient, user-centric solutions.",
 };
