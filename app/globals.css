@@ -123,8 +123,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor: auto;
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Ensure cursor is visible */
+  @media (min-width: 1024px) {
+    * {
+      cursor: auto;
+    }
+    a,
+    button {
+      cursor: pointer !important;
+    }
   }
 }
