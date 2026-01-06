@@ -61,9 +61,9 @@ export function CursorEffect() {
       <motion.div
         className="pointer-events-none fixed z-50 hidden lg:block"
         animate={{
-          x: mousePosition.x - 12,
-          y: mousePosition.y - 12,
-          scale: isPointer ? 1.5 : 1,
+          x: mousePosition.x - 8,
+          y: mousePosition.y - 8,
+          scale: isPointer ? 1.3 : 1,
         }}
         transition={{
           type: "spring",
@@ -72,15 +72,15 @@ export function CursorEffect() {
           mass: 0.5,
         }}
       >
-        <div className="w-6 h-6 rounded-full border-2 border-primary bg-primary/20 backdrop-blur-sm" />
+        <div className="w-4 h-4 rounded-full border-2 border-primary bg-primary/10 backdrop-blur-sm" />
       </motion.div>
 
       {/* Cursor Glow */}
       <motion.div
         className="pointer-events-none fixed z-40 hidden lg:block"
         animate={{
-          x: mousePosition.x - 20,
-          y: mousePosition.y - 20,
+          x: mousePosition.x - 16,
+          y: mousePosition.y - 16,
         }}
         transition={{
           type: "spring",
@@ -89,7 +89,7 @@ export function CursorEffect() {
           mass: 0.8,
         }}
       >
-        <div className="w-10 h-10 rounded-full bg-primary/10 blur-lg" />
+        <div className="w-8 h-8 rounded-full bg-primary/5 blur-md" />
       </motion.div>
 
       {/* Click Ripples */}

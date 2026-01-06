@@ -106,8 +106,8 @@ export function Footer() {
             © {currentYear} {personalInfo.name}. All rights reserved.
           </p>
           <p className="flex items-center gap-1">
-            Made with <Heart className="h-4 w-4 text-primary fill-current" />{" "}
-            using Next.js & TypeScript
+            Made with <Heart className="h-4 w-4 text-primary fill-current" /> by
+            Salman Sadik Siddiquee
           </p>
         </div>
       </div>

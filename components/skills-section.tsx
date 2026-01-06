@@ -60,28 +60,6 @@ export function SkillsSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Skills Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12"
-        >
-          <Card className="p-8 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-3">Full Stack Expertise</h3>
-              <p className="text-muted-foreground max-w-3xl mx-auto">
-                Proficient in building end-to-end web applications with modern
-                technologies. From crafting responsive frontends with React and
-                Next.js to developing robust backends with Node.js and managing
-                databases with MongoDB and SQL. Experienced in cloud deployment,
-                CI/CD pipelines, and implementing secure authentication systems.
-              </p>
-            </div>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );

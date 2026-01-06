@@ -1,7 +1,7 @@
 "use client";
 
 import { personalInfo } from "@/lib/data";
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 export function FixedSocialLinks() {
   const socialLinks = [
@@ -14,16 +14,6 @@ export function FixedSocialLinks() {
       icon: Linkedin,
       href: `https://linkedin.com/in/${personalInfo.linkedin}`,
       label: "LinkedIn",
-    },
-    {
-      icon: Twitter,
-      href: `https://twitter.com/${personalInfo.twitter}`,
-      label: "Twitter",
-    },
-    {
-      icon: Instagram,
-      href: `https://instagram.com/${personalInfo.instagram}`,
-      label: "Instagram",
     },
   ];
 

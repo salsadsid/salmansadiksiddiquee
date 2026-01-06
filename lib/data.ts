@@ -17,7 +17,6 @@ export interface Education {
   institution: string;
   location: string;
   period: string;
-  gpa: string;
 }
 
 export interface Training {
@@ -122,7 +121,6 @@ export const education: Education = {
   institution: "Begum Rokeya University, Rangpur",
   location: "Department of Geography and Environmental Science",
   period: "December 2022",
-  gpa: "3.18/4.00",
 };
 
 export const training: Training[] = [

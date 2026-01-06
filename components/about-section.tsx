@@ -1,6 +1,6 @@
 "use client";
 
-import { achievements, languages, personalInfo } from "@/lib/data";
+import { achievements, languages } from "@/lib/data";
 import { motion } from "framer-motion";
 import { Award, Globe } from "lucide-react";
 import { Badge } from "./ui/badge";
@@ -36,24 +36,25 @@ export function AboutSection() {
           >
             <Card className="p-6 sm:p-8 h-full">
               <h3 className="text-2xl font-bold mb-4">Who I Am</h3>
-              <div className="space-y-4 text-muted-foreground">
+              <div className="space-y-4  text-muted-foreground">
                 <p>
-                  I&apos;m a passionate Full Stack Developer based in{" "}
-                  {personalInfo.location}, specializing in building exceptional
-                  digital experiences. My journey in software development has
-                  equipped me with a diverse skill set and a deep understanding
-                  of modern web technologies.
+                  Hello there! I am Salman Sadik Siddiquee, a Full Stack
+                  Developer, specializing in building exceptional digital
+                  experiences. My journey in software development has equipped
+                  me with a diverse skill set and a deep understanding of modern
+                  web technologies.
                 </p>
                 <p>
-                  With extensive experience in the MERN stack, I&apos;ve
+                  With strong foundation in JavaScript frameworks, I&apos;ve
                   successfully delivered production-grade applications serving
                   100k+ users. I thrive on solving complex problems and
                   transforming ideas into elegant, scalable solutions.
                 </p>
                 <p>
-                  My approach combines technical expertise with a strong focus
-                  on user experience, ensuring that every project I work on is
-                  not just functional, but also intuitive and enjoyable to use.
+                  Beyond coding, I thrive in collaborative environments and
+                  enjoy tackling challenging problems with creative solutions. I
+                  aim to contribute to impactful projects that make a difference
+                  in users&apos; lives.
                 </p>
               </div>
 

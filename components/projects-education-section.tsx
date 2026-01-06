@@ -128,7 +128,6 @@ export function EducationSection() {
                     </p>
                     <div className="flex flex-wrap items-center gap-4 text-sm">
                       <Badge variant="secondary">{education.period}</Badge>
-                      <Badge variant="outline">CGPA: {education.gpa}</Badge>
                     </div>
                   </div>
                 </div>
