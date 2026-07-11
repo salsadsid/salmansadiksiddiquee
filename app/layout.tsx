@@ -20,11 +20,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Salman Sadik Siddiquee — Full-Stack Product Engineer",
-    template: "%s — Salman Sadik Siddiquee",
+    default: "Salman Sadik Siddiquee | Full-Stack Product Engineer",
+    template: "%s | Salman Sadik Siddiquee",
   },
   description:
-    "Full-stack engineer (React/Next.js, Node, TypeScript) shipping AI products in production: RAG pipelines, SSE streaming, structured outputs, and billing — 1M+ articles generated, 100k+ users, ~$390K processed.",
+    "Full-stack engineer (React/Next.js, Node, TypeScript) shipping AI products in production: RAG pipelines, SSE streaming, structured outputs, and billing. 1M+ articles generated, 100k+ users, ~$390K processed.",
   keywords: [
     "Full-Stack Engineer",
     "AI Products",
@@ -46,14 +46,14 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Salman Sadik Siddiquee",
-    title: "Salman Sadik Siddiquee — Full-Stack Product Engineer",
+    title: "Salman Sadik Siddiquee | Full-Stack Product Engineer",
     description:
       "AI products in production: RAG, SSE streaming, structured outputs, billing. 1M+ articles generated, 100k+ users, ~$390K processed.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salman Sadik Siddiquee — Full-Stack Product Engineer",
+    title: "Salman Sadik Siddiquee | Full-Stack Product Engineer",
     description:
       "AI products in production: RAG, SSE streaming, structured outputs, billing.",
   },

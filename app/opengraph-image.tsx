@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Salman Sadik Siddiquee — Full-Stack Product Engineer, AI products in production";
+  "Salman Sadik Siddiquee, Full-Stack Product Engineer: AI products in production";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -62,7 +62,7 @@ export default function OpengraphImage() {
               color: "#8b8d93",
             }}
           >
-            — AI products in production.
+            AI products in production.
           </div>
         </div>
 

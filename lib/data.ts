@@ -70,7 +70,7 @@ export const metrics: Metric[] = [
   {
     value: "1M+",
     label: "articles generated",
-    detail: "2B+ words through generation flows I built — sustained 2,000+ a day",
+    detail: "2B+ words through generation flows I built, sustained at 2,000+ a day",
   },
   {
     value: "100k+",
@@ -80,7 +80,7 @@ export const metrics: Metric[] = [
   {
     value: "~$390K",
     label: "payments processed",
-    detail: "checkout & billing I implemented — 11,000+ transactions, 5 gateways",
+    detail: "checkout & billing I implemented: 11,000+ transactions, 5 gateways",
   },
   {
     value: "1,000+",
@@ -96,10 +96,10 @@ export const caseStudies: CaseStudy[] = [
     name: "Affpilot",
     tagline: "The generation and publishing flows behind 1M+ AI-written articles.",
     oneLiner:
-      "AI auto-blogging SaaS — I was top contributor to the React architecture that carried it from early stage to 100k+ users.",
+      "AI auto-blogging SaaS. I was top contributor to the React architecture that carried it from early stage to 100k+ users.",
     role: "Frontend React Developer",
     company: "Affpilot",
-    period: "Oct 2023 – Sep 2025",
+    period: "Oct 2023 - Sep 2025",
     stack: [
       "React 18",
       "Redux Toolkit",
@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
       "Top contributor to the platform frontend: ~920 of 1,860 commits. Founding frontend engineer of Flippium: 79% of commits.",
     context: [
       "Affpilot is an AI auto-blogging SaaS: users pick keywords, configure tone and language, and the platform researches, writes, and publishes SEO articles to their sites. When I joined it was an early-stage product; over the next two years it grew to 100k+ registered users and more than a million generated articles.",
-      "I built and maintained the React component architecture — 290 reusable components across 92 routed pages, integrating 138 REST endpoints — as top contributor with roughly 920 of the codebase's 1,860 commits.",
+      "I built and maintained the React component architecture (290 reusable components across 92 routed pages, integrating 138 REST endpoints) as top contributor with roughly 920 of the codebase's 1,860 commits.",
     ],
     sections: [
       {
@@ -152,15 +152,15 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "SEO toolkit",
         bullets: [
-          "Country-aware keyword explorer, keyword clustering from CSV or pasted lists, and sitemap title extraction — feeding research directly into bulk generation.",
+          "Country-aware keyword explorer, keyword clustering from CSV or pasted lists, and sitemap title extraction, feeding research directly into bulk generation.",
         ],
       },
       {
-        heading: "Flippium — founding frontend engineer",
+        heading: "Flippium: founding frontend engineer",
         body: "Affpilot's website-flipping marketplace, built as a second product (Next.js 14 App Router, GraphQL, shadcn/Radix).",
         bullets: [
           "Multi-step listing wizard, marketplace filtering, and offer negotiation.",
-          "Buyer–seller–moderator messaging with optimistic updates, infinite scroll, and image/emoji support.",
+          "Buyer, seller, and moderator messaging with optimistic updates, infinite scroll, and image/emoji support.",
           "Facilitated 100+ site sales at up to $3K each; I authored 79% of commits.",
         ],
       },
@@ -175,7 +175,7 @@ export const caseStudies: CaseStudy[] = [
     decisions: [
       {
         title: "A central dialog registry instead of scattered modals",
-        body: "Publishing to four platforms from anywhere in the app meant dozens of modal flows. A single registry keyed by dialog ID kept them consistent and lazily loaded — one pattern to maintain instead of thirty ad-hoc ones.",
+        body: "Publishing to four platforms from anywhere in the app meant dozens of modal flows. A single registry keyed by dialog ID kept them consistent and lazily loaded: one pattern to maintain instead of thirty ad-hoc ones.",
       },
       {
         title: "Validation caps before bulk generation",
@@ -183,7 +183,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "RTK Query as the single data layer",
-        body: "138 endpoints with tag-based cache invalidation instead of hand-rolled fetching — generation status, credit balance, and publishing state stay consistent across 92 pages without manual refetch choreography.",
+        body: "138 endpoints with tag-based cache invalidation instead of hand-rolled fetching, so generation status, credit balance, and publishing state stay consistent across 92 pages without manual refetch choreography.",
       },
     ],
     outcome: [
@@ -199,10 +199,10 @@ export const caseStudies: CaseStudy[] = [
     tagline:
       "One auditable system replacing spreadsheet-and-email operations for a German medical-device manufacturer.",
     oneLiner:
-      "Device registry, warranty automation, AI support triage, and a RAG chatbot for a German neurofeedback manufacturer — I led development as top contributor.",
+      "Device registry, warranty automation, AI support triage, and a RAG chatbot for a German neurofeedback manufacturer. I led development as top contributor.",
     role: "Full Stack Developer",
     company: "AlgoSoft Technologies Limited",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 - Present",
     stack: [
       "Node.js",
       "Express",
@@ -225,7 +225,7 @@ export const caseStudies: CaseStudy[] = [
     attribution:
       "Team project at AlgoSoft; I led development as top contributor (1,100+ commits) across backend and frontend. The RAG chatbot was co-built.",
     context: [
-      "A German neurofeedback medical-device manufacturer ran its fleet on spreadsheets and email — device registrations, warranty renewals, support requests, repair logistics. AlgoSoft builds their device-lifecycle platform; I led its development as top contributor with 1,100+ commits.",
+      "A German neurofeedback medical-device manufacturer ran its fleet on spreadsheets and email: device registrations, warranty renewals, support requests, repair logistics. AlgoSoft builds their device-lifecycle platform; I led its development as top contributor with 1,100+ commits.",
       "The platform covers device registry, warranty administration, support ticketing, and EU-MDR-oriented quality management for 445 devices across 417 clinics, through admin, customer, and white-label reseller portals.",
     ],
     sections: [
@@ -254,13 +254,13 @@ export const caseStudies: CaseStudy[] = [
         heading: "Cross-system sync",
         bullets: [
           "A reseller service mirrors device movements from two independent deployments into the central registry.",
-          "A Shopify-to-platform event broker (Firebase Functions, Firestore, Cloud Tasks) converts paid orders into customer records, license issuance, and provisioning tasks — HMAC-verified, idempotent, and auto-retried.",
+          "A Shopify-to-platform event broker (Firebase Functions, Firestore, Cloud Tasks) converts paid orders into customer records, license issuance, and provisioning tasks. Every event is HMAC-verified, idempotent, and auto-retried.",
         ],
       },
       {
         heading: "Real-time portals",
         bullets: [
-          "Socket.io across all three portals: live device-movement updates, support chat, and server-cache synchronization — changes appear everywhere without a refresh.",
+          "Socket.io across all three portals: live device-movement updates, support chat, and server-cache synchronization, so changes appear everywhere without a refresh.",
           "Support-ticket intake rebuilt as a five-step wizard with timezone- and holiday-aware slot scheduling and embedded real-time chat.",
         ],
       },
@@ -268,7 +268,7 @@ export const caseStudies: CaseStudy[] = [
         heading: "Quality management & training LMS",
         bullets: [
           "EU-MDR-oriented QMS: multi-stage document approval, version control, electronic signatures, and automated PDF generation for compliance documentation.",
-          "In-house training LMS (Next.js 15, React 19): an AI quiz generator using structured-output GPT-4o-mini — multiple-choice and matching questions with explanations — plus enrollment and certificate flows with public certificate verification.",
+          "In-house training LMS (Next.js 15, React 19): an AI quiz generator using structured-output GPT-4o-mini (multiple-choice and matching questions with explanations), plus enrollment and certificate flows with public certificate verification.",
         ],
       },
     ],
@@ -296,12 +296,12 @@ export const caseStudies: CaseStudy[] = [
     slug: "school-platform",
     order: "03",
     name: "School Management Platform",
-    tagline: "Designed, built, and operated solo — a 1,000-student school runs on it daily.",
+    tagline: "Designed, built, and operated solo. A 1,000-student school runs on it daily.",
     oneLiner:
-      "The complete system behind a 1,000-student school — biometric attendance, results, fees, Bengali PDFs, guardian SMS — designed, built, and operated by one engineer.",
+      "The complete system behind a 1,000-student school: biometric attendance, results, fees, Bengali PDFs, and guardian SMS. Designed, built, and operated by one engineer.",
     role: "Freelance Software Developer",
     company: "H.A.K Academy",
-    period: "2025 – Present · part-time",
+    period: "2025 - Present · part-time",
     stack: [
       "React 18",
       "Vite",
@@ -312,14 +312,14 @@ export const caseStudies: CaseStudy[] = [
       "DigitalOcean",
       "ZKTeco BioTime",
     ],
-    cardMetrics: ["1,000+ students", "2–3k punches/day", "7 user roles"],
+    cardMetrics: ["1,000+ students", "2-3k punches/day", "7 user roles"],
     headlineMetrics: [
       { value: "1,000+", label: "students", detail: "across 12 grade levels" },
-      { value: "2–3k", label: "biometric punches/day" },
+      { value: "2-3k", label: "biometric punches/day" },
       { value: "7", label: "user roles", detail: "35 role-gated pages" },
       { value: "137", label: "REST endpoints", detail: "23 data models" },
     ],
-    attribution: "Solo project: every model, endpoint, page, and deployment is mine — and I operate it in production.",
+    attribution: "Solo project: every model, endpoint, page, and deployment is mine, and I operate it in production.",
     context: [
       "A private school in Gazipur ran admissions, attendance, fees, exams, and guardian communication on paper. I designed and built their entire platform solo, and still operate it: 23 data models, ~137 REST endpoints, JWT auth with per-route role middleware for seven user roles, running on Vercel and a DigitalOcean VPS under a PM2 cluster.",
     ],
@@ -329,7 +329,7 @@ export const caseStudies: CaseStudy[] = [
         bullets: [
           "ZKTeco fingerprint devices polled through an adaptive, holiday-aware pipeline.",
           "Every punch classified as entry, exit, or absent against per-class schedule windows; guardians receive an SMS within seconds.",
-          "Handles 2,000–3,000 punches a day with cron reconciliation, health monitoring, and automatic recovery.",
+          "Handles 2,000-3,000 punches a day with cron reconciliation, health monitoring, and automatic recovery.",
         ],
       },
       {
@@ -343,13 +343,13 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Bengali-typography PDFs",
         bullets: [
-          "Client-side PDF generation with embedded Bengali fonts (@react-pdf/renderer): progress cards, admit cards, seat plans, and printable admission applications — self-service instead of office queues.",
+          "Client-side PDF generation with embedded Bengali fonts (@react-pdf/renderer): progress cards, admit cards, seat plans, and printable admission applications, all self-service instead of office queues.",
         ],
       },
       {
         heading: "Guardian messaging",
         bullets: [
-          "Rate-limited SMS service with retry/backoff, per-student deduplication, per-message delivery status — and an emergency kill switch.",
+          "Rate-limited SMS service with retry/backoff, per-student deduplication, per-message delivery status, and an emergency kill switch.",
         ],
       },
       {
@@ -371,11 +371,11 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Solo-operable by design",
-        body: "One engineer runs this part-time. Health monitoring, automatic recovery, and audit trails aren't nice-to-haves — they're what makes that possible.",
+        body: "One engineer runs this part-time. Health monitoring, automatic recovery, and audit trails aren't nice-to-haves; they're what makes that possible.",
       },
     ],
     outcome: [
-      "The school runs on the platform daily — attendance, results, fees, admissions, and printing are self-service.",
+      "The school runs on the platform daily. Attendance, results, fees, admissions, and printing are self-service.",
       "Guardians are notified of attendance within seconds of a fingerprint punch.",
       "Operated in production by one part-time engineer, by design.",
     ],
@@ -405,7 +405,7 @@ export const projects: Project[] = [
     title: "ParcelOne",
     note: "Real-time logistics",
     description:
-      "Parcel-delivery platform with live courier tracking — Socket.io location events synchronized into RTK Query caches — and role-based dashboards for merchants, couriers, and admins.",
+      "Parcel-delivery platform with live courier tracking (Socket.io location events synchronized into RTK Query caches) and role-based dashboards for merchants, couriers, and admins.",
     stack: ["React", "RTK Query", "Socket.io", "Node.js"],
     live: "https://parcelone-frontend.vercel.app",
     github: "https://github.com/salsadsid/parcelone-frontend",
@@ -417,9 +417,9 @@ export const experiences: Experience[] = [
     title: "Full Stack Developer",
     company: "AlgoSoft Technologies Limited",
     location: "Dhaka, Bangladesh",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 - Present",
     summary: [
-      "Leading development (top contributor, 1,100+ commits) of a device-lifecycle platform for a German medical-device manufacturer — 445 devices across 417 clinics.",
+      "Leading development (top contributor, 1,100+ commits) of a device-lifecycle platform for a German medical-device manufacturer: 445 devices across 417 clinics.",
       "Shipped the warranty-renewal pipeline, AI email triage, RAG support chatbot, Shopify event broker, and an LMS with an AI quiz generator.",
     ],
     caseStudySlug: "device-platform",
@@ -428,7 +428,7 @@ export const experiences: Experience[] = [
     title: "Frontend React Developer",
     company: "Affpilot",
     location: "Dhaka, Bangladesh",
-    period: "Oct 2023 – Sep 2025",
+    period: "Oct 2023 - Sep 2025",
     summary: [
       "Top contributor (~920 of 1,860 commits) to the React architecture behind 1M+ AI-generated articles for 100k+ users.",
       "Built the generation workflows, write-to-publish pipeline, and billing that processed ~$390K; founding frontend engineer of Flippium (79% of commits).",
@@ -439,9 +439,9 @@ export const experiences: Experience[] = [
     title: "Freelance Software Developer",
     company: "H.A.K Academy",
     location: "Gazipur, Bangladesh",
-    period: "2025 – Present · part-time",
+    period: "2025 - Present · part-time",
     summary: [
-      "Designed, built, and operate a school platform solo — 1,000+ students, seven user roles, biometric attendance at 2,000–3,000 punches a day.",
+      "Designed, built, and operate a school platform solo: 1,000+ students, seven user roles, biometric attendance at 2,000-3,000 punches a day.",
       "Bengali PDF pipelines, a GPA/results engine with rollback, and rate-limited guardian SMS with an emergency kill switch.",
     ],
     caseStudySlug: "school-platform",

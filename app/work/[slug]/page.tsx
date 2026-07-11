@@ -24,7 +24,7 @@ export async function generateMetadata({
   const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) return {};
   return {
-    title: `${cs.name} — Case study`,
+    title: `${cs.name} case study`,
     description: `${cs.tagline} ${cs.role} · ${cs.period}.`,
   };
 }

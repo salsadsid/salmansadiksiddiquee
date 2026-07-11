@@ -16,7 +16,7 @@ export function ContactSection() {
               <span className="text-muted-foreground"> survive real users?</span>
             </h3>
             <p className="mt-5 max-w-xl text-muted-foreground leading-relaxed">
-              I&apos;m open to international remote roles — full-stack or
+              I&apos;m open to international remote roles, full-stack or
               frontend, especially AI products. Based in Dhaka ({personalInfo.timezone}),
               comfortable overlapping with EU and US teams.
             </p>

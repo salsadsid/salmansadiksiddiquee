@@ -32,7 +32,7 @@ export function AboutSection() {
           <Reveal delay={0.1}>
             <div className="max-w-2xl space-y-5 text-[0.9375rem] sm:text-base text-muted-foreground leading-relaxed">
               <p>
-                I&apos;m Salman — a full-stack engineer in Dhaka. My degree is in
+                I&apos;m Salman, a full-stack engineer in Dhaka. My degree is in
                 Geography and Environmental Science; everything I know about
                 software I learned by shipping it.
               </p>
@@ -44,8 +44,8 @@ export function AboutSection() {
                 operate solo for 1,000+ students.
               </p>
               <p>
-                I like products where the code meets the real world — payments,
-                biometric devices, SMS gateways, printed report cards — and AI
+                I like products where the code meets the real world (payments,
+                biometric devices, SMS gateways, printed report cards) and AI
                 features that hold up in production, not just in a demo.
               </p>
             </div>
@@ -56,7 +56,7 @@ export function AboutSection() {
                   Education
                 </dt>
                 <dd className="text-sm leading-relaxed text-foreground/85">
-                  {education.degree}, {education.field} —{" "}
+                  {education.degree}, {education.field} ·{" "}
                   {education.institution}, {education.year}
                 </dd>
               </div>

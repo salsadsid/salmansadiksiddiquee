@@ -4,7 +4,7 @@ import { Github, Linkedin } from "lucide-react";
 export function FixedSocialLinks() {
   return (
     <>
-      {/* Left rail — social */}
+      {/* Left rail: social */}
       <div className="fixed left-7 bottom-0 z-40 hidden lg:flex flex-col items-center gap-5">
         <a
           href={`https://github.com/${personalInfo.github}`}
@@ -27,7 +27,7 @@ export function FixedSocialLinks() {
         <div className="w-px h-20 bg-border" />
       </div>
 
-      {/* Right rail — email */}
+      {/* Right rail: email */}
       <div className="fixed right-7 bottom-0 z-40 hidden lg:flex flex-col items-center gap-5">
         <a
           href={`mailto:${personalInfo.email}`}

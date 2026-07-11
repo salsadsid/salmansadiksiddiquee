@@ -35,7 +35,7 @@ export function HeroSection() {
             >
               Full-stack product engineer
               <span className="block text-muted-foreground">
-                — AI products in production.
+                AI products in production.
               </span>
             </motion.h1>
 
@@ -44,7 +44,7 @@ export function HeroSection() {
               className="mt-7 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
             >
               RAG pipelines, SSE-streaming interfaces, and the billing systems
-              around them — about three years shipping production SaaS used by
+              around them. About three years shipping production SaaS used by
               100k+ people, end to end.
             </motion.p>
 
@@ -79,7 +79,7 @@ export function HeroSection() {
             <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-primary" />
 
             <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-border">
-              <span className="eyebrow">Production — to date</span>
+              <span className="eyebrow">Production to date</span>
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-primary/60 motion-safe:animate-ping" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
