@@ -1,63 +1,25 @@
-"use client";
-
 import { skills } from "@/lib/data";
-import { motion } from "framer-motion";
-import { Badge } from "./ui/badge";
-import { Card } from "./ui/card";
+import { Reveal } from "./reveal";
+import { SectionHeader } from "./section-header";
 
 export function SkillsSection() {
-  const categories = Object.entries(skills);
-
   return (
-    <section id="skills" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Technical <span className="text-primary">Skills</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive overview of my technical expertise and tools I work
-            with
-          </p>
-        </motion.div>
+    <section id="skills" className="py-24">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <SectionHeader index="04" title="Stack" aside="What I ship with" />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map(([category, items], index) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="p-6 h-full hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-primary/50">
-                <h3 className="text-xl font-bold mb-4 text-foreground">
+        <div>
+          {Object.entries(skills).map(([category, items], i) => (
+            <Reveal key={category} delay={i * 0.04}>
+              <div className="grid gap-1 sm:grid-cols-[14rem_1fr] border-b border-border py-4 first:border-t">
+                <div className="font-mono text-xs tracking-wide text-muted-foreground uppercase pt-0.5">
                   {category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {items.map((skill) => (
-                    <motion.div
-                      key={skill}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Badge
-                        variant="secondary"
-                        className="text-sm py-1.5 px-3 hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
-                      >
-                        {skill}
-                      </Badge>
-                    </motion.div>
-                  ))}
                 </div>
-              </Card>
-            </motion.div>
+                <p className="text-sm leading-relaxed text-foreground/85">
+                  {items}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

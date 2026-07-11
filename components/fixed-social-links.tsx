@@ -1,51 +1,42 @@
-"use client";
-
 import { personalInfo } from "@/lib/data";
 import { Github, Linkedin } from "lucide-react";
 
 export function FixedSocialLinks() {
-  const socialLinks = [
-    {
-      icon: Github,
-      href: `https://github.com/${personalInfo.github}`,
-      label: "GitHub",
-    },
-    {
-      icon: Linkedin,
-      href: `https://linkedin.com/in/${personalInfo.linkedin}`,
-      label: "LinkedIn",
-    },
-  ];
-
   return (
     <>
-      {/* Left side - Social Links */}
-      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-6">
-        {socialLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors duration-300"
-            aria-label={link.label}
-          >
-            <link.icon className="h-5 w-5" />
-          </a>
-        ))}
-        <div className="w-px h-24 bg-muted-foreground/30 mx-auto mt-4" />
+      {/* Left rail — social */}
+      <div className="fixed left-7 bottom-0 z-40 hidden lg:flex flex-col items-center gap-5">
+        <a
+          href={`https://github.com/${personalInfo.github}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="text-muted-foreground/70 hover:text-primary hover:-translate-y-0.5 transition-all duration-300"
+        >
+          <Github className="h-[1.05rem] w-[1.05rem]" />
+        </a>
+        <a
+          href={`https://linkedin.com/in/${personalInfo.linkedin}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="text-muted-foreground/70 hover:text-primary hover:-translate-y-0.5 transition-all duration-300"
+        >
+          <Linkedin className="h-[1.05rem] w-[1.05rem]" />
+        </a>
+        <div className="w-px h-20 bg-border" />
       </div>
 
-      {/* Right side - Email */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col items-center gap-6">
+      {/* Right rail — email */}
+      <div className="fixed right-7 bottom-0 z-40 hidden lg:flex flex-col items-center gap-5">
         <a
           href={`mailto:${personalInfo.email}`}
-          className="text-muted-foreground hover:text-primary transition-colors duration-300 [writing-mode:vertical-rl] text-sm tracking-widest"
+          className="font-mono text-[0.6875rem] tracking-[0.18em] text-muted-foreground/70 hover:text-primary hover:-translate-y-0.5 transition-all duration-300"
           style={{ writingMode: "vertical-rl" }}
         >
           {personalInfo.email}
         </a>
-        <div className="w-px h-24 bg-muted-foreground/30" />
+        <div className="w-px h-20 bg-border" />
       </div>
     </>
   );

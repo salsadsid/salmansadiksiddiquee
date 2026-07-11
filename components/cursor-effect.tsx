@@ -1,125 +1,80 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+} from "framer-motion";
+import { useEffect, useSyncExternalStore } from "react";
 
-interface Ripple {
-  x: number;
-  y: number;
-  id: number;
+function subscribeFinePointer(callback: () => void) {
+  const query = window.matchMedia("(pointer: fine)");
+  query.addEventListener("change", callback);
+  return () => query.removeEventListener("change", callback);
 }
 
+function useFinePointer() {
+  return useSyncExternalStore(
+    subscribeFinePointer,
+    () => window.matchMedia("(pointer: fine)").matches,
+    () => false
+  );
+}
+
+/**
+ * Accent cursor: a small dot that tracks the pointer directly and a ring that
+ * springs behind it, swelling over interactive elements. Runs entirely on
+ * motion values (no React re-renders per pointermove), only on fine pointers,
+ * and not at all when the user prefers reduced motion.
+ */
 export function CursorEffect() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [ripples, setRipples] = useState<Ripple[]>([]);
-  const [isPointer, setIsPointer] = useState(false);
+  const reduced = useReducedMotion();
+  const finePointer = useFinePointer();
+  const enabled = finePointer && !reduced;
+
+  const x = useMotionValue(-100);
+  const y = useMotionValue(-100);
+  const scale = useMotionValue(1);
+
+  const ringX = useSpring(x, { stiffness: 320, damping: 32, mass: 0.55 });
+  const ringY = useSpring(y, { stiffness: 320, damping: 32, mass: 0.55 });
+  const ringScale = useSpring(scale, { stiffness: 260, damping: 22 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    if (!enabled) return;
 
-      // Check if hovering over clickable element
-      const target = e.target as HTMLElement;
-      const isClickable =
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        window.getComputedStyle(target).cursor === "pointer";
-
-      setIsPointer(!!isClickable);
+    const onMove = (e: PointerEvent) => {
+      x.set(e.clientX);
+      y.set(e.clientY);
+      const target = e.target as HTMLElement | null;
+      scale.set(target?.closest("a, button, [role='button']") ? 1.9 : 1);
     };
 
-    const handleClick = (e: MouseEvent) => {
-      const newRipple: Ripple = {
-        x: e.clientX,
-        y: e.clientY,
-        id: Date.now(),
-      };
-      setRipples((prev) => [...prev, newRipple]);
+    window.addEventListener("pointermove", onMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onMove);
+  }, [enabled, x, y, scale]);
 
-      // Remove ripple after animation
-      setTimeout(() => {
-        setRipples((prev) =>
-          prev.filter((ripple) => ripple.id !== newRipple.id)
-        );
-      }, 1000);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("click", handleClick);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("click", handleClick);
-    };
-  }, []);
+  if (!enabled) return null;
 
   return (
     <>
-      {/* Custom Cursor */}
       <motion.div
-        className="pointer-events-none fixed z-50 hidden lg:block"
-        animate={{
-          x: mousePosition.x - 8,
-          y: mousePosition.y - 8,
-          scale: isPointer ? 1.3 : 1,
-        }}
-        transition={{
-          type: "spring",
-          damping: 30,
-          stiffness: 200,
-          mass: 0.5,
-        }}
-      >
-        <div className="w-4 h-4 rounded-full border-2 border-primary bg-primary/10 backdrop-blur-sm" />
-      </motion.div>
-
-      {/* Cursor Glow */}
+        aria-hidden
+        className="pointer-events-none fixed left-0 top-0 z-[90] h-1.5 w-1.5 rounded-full bg-primary"
+        style={{ x, y, translateX: "-50%", translateY: "-50%" }}
+      />
       <motion.div
-        className="pointer-events-none fixed z-40 hidden lg:block"
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
+        aria-hidden
+        className="pointer-events-none fixed left-0 top-0 z-[90] h-7 w-7 rounded-full border border-primary/50"
+        style={{
+          x: ringX,
+          y: ringY,
+          scale: ringScale,
+          translateX: "-50%",
+          translateY: "-50%",
         }}
-        transition={{
-          type: "spring",
-          damping: 20,
-          stiffness: 100,
-          mass: 0.8,
-        }}
-      >
-        <div className="w-8 h-8 rounded-full bg-primary/5 blur-md" />
-      </motion.div>
-
-      {/* Click Ripples */}
-      <AnimatePresence>
-        {ripples.map((ripple) => (
-          <motion.div
-            key={ripple.id}
-            className="pointer-events-none fixed z-30 hidden lg:block"
-            initial={{
-              x: ripple.x - 20,
-              y: ripple.y - 20,
-              scale: 0,
-              opacity: 1,
-            }}
-            animate={{
-              scale: 2,
-              opacity: 0,
-            }}
-            exit={{
-              opacity: 0,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: "easeOut",
-            }}
-          >
-            <div className="w-10 h-10 rounded-full border-2 border-primary/40" />
-          </motion.div>
-        ))}
-      </AnimatePresence>
+      />
     </>
   );
 }
