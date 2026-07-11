@@ -41,6 +41,14 @@ export interface Project {
   stack: string[];
   live?: string;
   github?: string;
+  writeup?: string;
+}
+
+export interface Post {
+  title: string;
+  description: string;
+  date: string;
+  url: string;
 }
 
 export interface Experience {
@@ -391,6 +399,8 @@ export const projects: Project[] = [
     stack: ["Next.js 16", "Tailwind CSS 4"],
     live: "https://visualizer-gold.vercel.app",
     github: "https://github.com/salsadsid/visualizer",
+    writeup:
+      "https://dev.to/salsadsid/i-built-a-sorting-visualizer-you-can-actually-step-through-bars-pointers-pseudocode-confetti-1bbb",
   },
   {
     title: "Brain Booming",
@@ -409,6 +419,31 @@ export const projects: Project[] = [
     stack: ["React", "RTK Query", "Socket.io", "Node.js"],
     live: "https://parcelone-frontend.vercel.app",
     github: "https://github.com/salsadsid/parcelone-frontend",
+  },
+];
+
+export const posts: Post[] = [
+  {
+    title:
+      "I built a Sorting Visualizer you can actually step through (bars, pointers, pseudocode & confetti)",
+    description:
+      "How the step engine behind my DSA Visualizer works: generator-produced steps, synced pseudocode highlighting, and live pointer tracking.",
+    date: "Jun 2026",
+    url: "https://dev.to/salsadsid/i-built-a-sorting-visualizer-you-can-actually-step-through-bars-pointers-pseudocode-confetti-1bbb",
+  },
+  {
+    title: "Zustand: A Lightweight State Management Library (No Boilerplate Needed)",
+    description:
+      "A practical introduction to Zustand: stores, actions, localStorage persistence, and Redux DevTools debugging.",
+    date: "Nov 2025",
+    url: "https://dev.to/salsadsid/zustand-a-lightweight-state-management-library-no-boilerplate-needed-4b3g",
+  },
+  {
+    title: "Building a 2D Array Visualizer with React: A Step-by-Step Guide",
+    description:
+      "Building an interactive 2D array grid in React: input validation, rendering logic, and per-cell styling.",
+    date: "Sep 2024",
+    url: "https://dev.to/salsadsid/building-a-2d-array-visualizer-with-react-a-step-by-step-guide-1d9h",
   },
 ];
 

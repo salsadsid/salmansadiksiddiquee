@@ -53,6 +53,16 @@ export function ProjectSection() {
                       GitHub <ArrowUpRight className="h-3 w-3" />
                     </a>
                   )}
+                  {project.writeup && (
+                    <a
+                      href={project.writeup}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      Write-up <ArrowUpRight className="h-3 w-3" />
+                    </a>
+                  )}
                 </div>
               </article>
             </Reveal>

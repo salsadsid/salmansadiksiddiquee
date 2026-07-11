@@ -9,6 +9,7 @@ import { ProjectSection } from "@/components/project-section";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { SkillsSection } from "@/components/skills-section";
 import { WorkSection } from "@/components/work-section";
+import { WritingSection } from "@/components/writing-section";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroSection />
       <WorkSection />
       <ProjectSection />
+      <WritingSection />
       <ExperienceSection />
       <SkillsSection />
       <AboutSection />

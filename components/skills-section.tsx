@@ -6,7 +6,7 @@ export function SkillsSection() {
   return (
     <section id="skills" className="py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <SectionHeader index="04" title="Stack" aside="What I ship with" />
+        <SectionHeader index="05" title="Stack" aside="What I ship with" />
 
         <div>
           {Object.entries(skills).map(([category, items], i) => (

@@ -7,7 +7,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <SectionHeader index="06" title="Contact" aside="Open to remote roles" />
+        <SectionHeader index="07" title="Contact" aside="Open to remote roles" />
 
         <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] items-start">
           <Reveal>

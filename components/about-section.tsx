@@ -7,7 +7,7 @@ export function AboutSection() {
   return (
     <section id="about" className="py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <SectionHeader index="05" title="About" />
+        <SectionHeader index="06" title="About" />
 
         <div className="grid gap-12 lg:grid-cols-[minmax(0,17rem)_1fr] items-start">
           <Reveal>
