@@ -1,6 +1,6 @@
-# salmansadiksiddiquee.vercel.app
+# salmansadiksiddiquee.tech
 
-Personal portfolio: [live site](https://salmansadiksiddiquee.vercel.app).
+Personal portfolio: [live site](https://salmansadiksiddiquee.tech).
 
 Editorial one-pager plus three written case studies (`/work/affpilot`, `/work/device-platform`, `/work/school-platform`) covering the production systems I've built: an AI content platform (1M+ generated articles), a medical-device lifecycle platform, and a solo-operated school management system.
 
