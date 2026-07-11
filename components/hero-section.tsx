@@ -1,209 +1,116 @@
 "use client";
 
-import { personalInfo } from "@/lib/data";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
-import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { metrics, personalInfo } from "@/lib/data";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { CountUp } from "./reveal";
 
-const quotes = [
-  {
-    text: "The only way to learn a new programming language is by writing programs in it.",
-    author: "Dennis Ritchie",
-  },
-  {
-    text: "Programs must be written for people to read, and only incidentally for machines to execute.",
-    author: "Harold Abelson",
-  },
-  {
-    text: "Think twice, code once.",
-    author: "Anonymous",
-  },
-  {
-    text: "The best way to predict the future is to invent it.",
-    author: "Alan Kay",
-  },
-  {
-    text: "Mathematics is the language in which God has written the universe.",
-    author: "Galileo Galilei",
-  },
-  {
-    text: "It's not a bug – it's an undocumented feature.",
-    author: "Anonymous",
-  },
-];
+const EASE = [0.21, 0.47, 0.32, 0.98] as const;
 
 export function HeroSection() {
+  const reduced = useReducedMotion();
+
+  const rise = (delay: number) => ({
+    initial: reduced ? false : { opacity: 0, y: 18 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, delay, ease: EASE },
+  });
+
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-4 sm:pt-8 lg:pt-16"
-    >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-            >
-              <p className="text-xl sm:text-2xl text-muted-foreground mb-2">
-                Hi, I&apos;m
-              </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                  {personalInfo.name}
-                </span>
-              </h1>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-2xl sm:text-3xl font-semibold text-muted-foreground"
-            >
-              {personalInfo.title}
+    <section id="home" className="relative">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8 pt-36 pb-20 lg:pt-44 lg:pb-28">
+        <div className="grid lg:grid-cols-[1.35fr_1fr] gap-14 lg:gap-20 items-center">
+          {/* Statement */}
+          <div>
+            <motion.p {...rise(0.05)} className="eyebrow mb-6">
+              <span className="whitespace-nowrap">{personalInfo.location}</span>{" "}
+              · <span className="whitespace-nowrap">{personalInfo.timezone}</span> ·{" "}
+              <span className="whitespace-nowrap">remote-ready</span>
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg text-muted-foreground max-w-2xl"
+            <motion.h1
+              {...rise(0.15)}
+              className="text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-[4.25rem] font-semibold tracking-tight text-balance"
             >
-              {personalInfo.bio}
+              Full-stack product engineer
+              <span className="block text-muted-foreground">
+                AI products in production.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              {...rise(0.25)}
+              className="mt-7 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
+            >
+              RAG pipelines, SSE-streaming interfaces, and the billing systems
+              around them. About three years shipping production SaaS used by
+              100k+ people, end to end.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Button
-                size="lg"
-                className="group"
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+            <motion.div {...rise(0.35)} className="mt-9 flex flex-wrap items-center gap-3">
+              <Link
+                href="/#work"
+                className="inline-flex items-center gap-2 rounded-md bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:opacity-85 transition-opacity"
               >
-                Get In Touch
-                <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href={`mailto:${personalInfo.email}`}>
-                  <Mail className="mr-2 h-4 w-4" />
-                  Email Me
-                </a>
-              </Button>
+                View work
+                <ArrowDown className="h-4 w-4" />
+              </Link>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary transition-colors"
+              >
+                Get in touch
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
             </motion.div>
-          </motion.div>
-
-          {/* Quote Slideshow */}
-          <QuoteSlideshow />
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="flex flex-col items-center gap-2 text-muted-foreground"
-        >
-          <span className="text-sm">Scroll Down</span>
-          <ArrowDown className="h-5 w-5" />
-        </motion.div>
-      </motion.div>
-    </section>
-  );
-}
-
-function QuoteSlideshow() {
-  const [currentQuote, setCurrentQuote] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentQuote((prev) => (prev + 1) % quotes.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay: 0.3 }}
-      className="relative hidden lg:flex items-center justify-center"
-    >
-      <div className="relative w-full max-w-lg mx-auto min-h-[400px] flex items-center justify-center">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-        </div>
-
-        {/* Quote Container */}
-        <div className="relative w-full p-8 rounded-2xl bg-secondary/30 backdrop-blur-sm border border-primary/10">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentQuote}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-center"
-            >
-              <div className="text-6xl text-primary/30 mb-4 leading-none">
-                &quot;
-              </div>
-              <p className="text-lg sm:text-xl text-foreground italic leading-relaxed px-4 min-h-[120px] flex items-center justify-center">
-                {quotes[currentQuote].text}
-              </p>
-              <footer className="mt-6 text-base sm:text-lg text-primary font-semibold">
-                — {quotes[currentQuote].author}
-              </footer>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-8">
-            {quotes.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentQuote(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentQuote
-                    ? "bg-primary w-8"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                }`}
-                aria-label={`Go to quote ${index + 1}`}
-              />
-            ))}
           </div>
+
+          {/* Proof panel */}
+          <motion.aside
+            initial={reduced ? false : { opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.4, ease: EASE }}
+            aria-label="Production metrics"
+            className="relative border border-border rounded-lg bg-card/50"
+          >
+            {/* Corner ticks */}
+            <span aria-hidden className="absolute -top-px -left-px h-3 w-3 border-t border-l border-primary" />
+            <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-primary" />
+
+            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-border">
+              <span className="eyebrow">Production to date</span>
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-primary/60 motion-safe:animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+            </div>
+
+            <dl>
+              {metrics.map((m, i) => (
+                <div
+                  key={m.label}
+                  className={`px-5 py-4 ${i > 0 ? "border-t border-border" : ""}`}
+                >
+                  <dt className="sr-only">{m.label}</dt>
+                  <dd className="flex items-baseline gap-3">
+                    <CountUp
+                      value={m.value}
+                      className="font-mono text-2xl font-medium tracking-tight tabular-nums"
+                    />
+                    <span className="text-sm text-foreground/80">{m.label}</span>
+                  </dd>
+                  {m.detail && (
+                    <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                      {m.detail}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </dl>
+          </motion.aside>
         </div>
       </div>
-    </motion.div>
+    </section>
   );
 }

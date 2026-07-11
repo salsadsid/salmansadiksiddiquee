@@ -5,12 +5,11 @@ import { FixedSocialLinks } from "@/components/fixed-social-links";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
 import { Navigation } from "@/components/navigation";
-import {
-  EducationSection,
-  ProjectsSection,
-} from "@/components/projects-education-section";
+import { ProjectSection } from "@/components/project-section";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { SkillsSection } from "@/components/skills-section";
+import { WorkSection } from "@/components/work-section";
+import { WritingSection } from "@/components/writing-section";
 
 export default function Home() {
   return (
@@ -18,11 +17,12 @@ export default function Home() {
       <Navigation />
       <FixedSocialLinks />
       <HeroSection />
-      <AboutSection />
-      <SkillsSection />
+      <WorkSection />
+      <ProjectSection />
+      <WritingSection />
       <ExperienceSection />
-      <ProjectsSection />
-      <EducationSection />
+      <SkillsSection />
+      <AboutSection />
       <ContactSection />
       <Footer />
       <ScrollToTop />

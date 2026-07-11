@@ -1,149 +1,75 @@
-"use client";
-
-import { achievements, languages } from "@/lib/data";
-import { motion } from "framer-motion";
-import { Award, Globe } from "lucide-react";
-import { Badge } from "./ui/badge";
-import { Card } from "./ui/card";
+import { education, languages, personalInfo } from "@/lib/data";
+import Image from "next/image";
+import { Reveal } from "./reveal";
+import { SectionHeader } from "./section-header";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            About <span className="text-primary">Me</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Learn more about my background, skills, and what drives me as a
-            developer
-          </p>
-        </motion.div>
+    <section id="about" className="py-24">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <SectionHeader index="06" title="About" />
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* About Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <Card className="p-6 sm:p-8 h-full">
-              <h3 className="text-2xl font-bold mb-4">Who I Am</h3>
-              <div className="space-y-4  text-muted-foreground">
-                <p>
-                  Hello there! I am Salman Sadik Siddiquee, a Full Stack
-                  Developer, specializing in building exceptional digital
-                  experiences. My journey in software development has equipped
-                  me with a diverse skill set and a deep understanding of modern
-                  web technologies.
-                </p>
-                <p>
-                  With strong foundation in JavaScript frameworks, I&apos;ve
-                  successfully delivered production-grade applications serving
-                  100k+ users. I thrive on solving complex problems and
-                  transforming ideas into elegant, scalable solutions.
-                </p>
-                <p>
-                  Beyond coding, I thrive in collaborative environments and
-                  enjoy tackling challenging problems with creative solutions. I
-                  aim to contribute to impactful projects that make a difference
-                  in users&apos; lives.
-                </p>
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,17rem)_1fr] items-start">
+          <Reveal>
+            <div className="relative max-w-[17rem]">
+              <span aria-hidden className="absolute -top-px -left-px h-3 w-3 border-t border-l border-primary z-10" />
+              <span aria-hidden className="absolute -bottom-px -right-px h-3 w-3 border-b border-r border-primary z-10" />
+              <div className="overflow-hidden rounded-lg border border-border bg-secondary/60">
+                <Image
+                  src="/salmansadiksiddiquee.png"
+                  alt={personalInfo.name}
+                  width={511}
+                  height={489}
+                  className="w-full h-auto grayscale hover:grayscale-0 transition-[filter] duration-500"
+                />
               </div>
+              <p className="mt-3 font-mono text-[0.6875rem] tracking-wide text-muted-foreground uppercase text-center">
+                {personalInfo.name}
+              </p>
+            </div>
+          </Reveal>
 
-              <div className="mt-6 pt-6 border-t border-border">
-                <h4 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-primary" />
+          <Reveal delay={0.1}>
+            <div className="max-w-2xl space-y-5 text-[0.9375rem] sm:text-base text-muted-foreground leading-relaxed">
+              <p>
+                I&apos;m Salman, a full-stack engineer in Dhaka. My degree is in
+                Geography and Environmental Science; everything I know about
+                software I learned by shipping it.
+              </p>
+              <p>
+                Since 2023 I&apos;ve been the top contributor on an AI content
+                platform used by 100k+ people, led development of a
+                device-lifecycle platform for a German medical-device
+                manufacturer, and built a school management system that I still
+                operate solo for 1,000+ students.
+              </p>
+              <p>
+                I like products where the code meets the real world (payments,
+                biometric devices, SMS gateways, printed report cards) and AI
+                features that hold up in production, not just in a demo.
+              </p>
+            </div>
+
+            <dl className="mt-10 max-w-2xl">
+              <div className="grid gap-1 sm:grid-cols-[14rem_1fr] border-t border-border py-4">
+                <dt className="font-mono text-xs tracking-wide text-muted-foreground uppercase pt-0.5">
+                  Education
+                </dt>
+                <dd className="text-sm leading-relaxed text-foreground/85">
+                  {education.degree}, {education.field} ·{" "}
+                  {education.institution}, {education.year}
+                </dd>
+              </div>
+              <div className="grid gap-1 sm:grid-cols-[14rem_1fr] border-t border-b border-border py-4">
+                <dt className="font-mono text-xs tracking-wide text-muted-foreground uppercase pt-0.5">
                   Languages
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {languages.map((lang) => (
-                    <Badge key={lang} variant="secondary">
-                      {lang}
-                    </Badge>
-                  ))}
-                </div>
+                </dt>
+                <dd className="text-sm leading-relaxed text-foreground/85">
+                  {languages.join(" · ")}
+                </dd>
               </div>
-            </Card>
-          </motion.div>
-
-          {/* Achievements & Contact */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-6"
-          >
-            {/* Achievements */}
-            <Card className="p-6 sm:p-8">
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                <Award className="h-6 w-6 text-primary" />
-                Achievements
-              </h3>
-              <div className="space-y-3">
-                {achievements.map((achievement, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 * index }}
-                    className="flex items-start gap-3 p-3 rounded-lg bg-primary/5 border border-primary/10"
-                  >
-                    <div className="flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-primary" />
-                    <p className="text-sm text-muted-foreground">
-                      {achievement}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </Card>
-
-            {/* Quick Stats */}
-            <Card className="p-6 sm:p-8">
-              <h3 className="text-2xl font-bold mb-6">Quick Stats</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 rounded-lg bg-primary/5">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    78+
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    MongoDB Models
-                  </div>
-                </div>
-                <div className="text-center p-4 rounded-lg bg-primary/5">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    100K+
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Users Served
-                  </div>
-                </div>
-                <div className="text-center p-4 rounded-lg bg-primary/5">
-                  <div className="text-3xl font-bold text-primary mb-1">3+</div>
-                  <div className="text-sm text-muted-foreground">
-                    Years Experience
-                  </div>
-                </div>
-                <div className="text-center p-4 rounded-lg bg-primary/5">
-                  <div className="text-3xl font-bold text-primary mb-1">
-                    20+
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Technologies
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
+            </dl>
+          </Reveal>
         </div>
       </div>
     </section>

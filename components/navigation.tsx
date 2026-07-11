@@ -1,19 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { personalInfo } from "@/lib/data";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { Button } from "./ui/button";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Work", href: "/#work" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Writing", href: "/#writing" },
+  { name: "About", href: "/#about" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export function Navigation() {
@@ -21,72 +21,62 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-sm"
-          : "bg-transparent"
+          ? "bg-background/85 backdrop-blur-md border-b border-border"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+      <nav className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <Link
+            href="/"
+            className="text-sm font-semibold tracking-tight hover:text-primary transition-colors"
           >
-            <Link
-              href="#home"
-              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent"
-            >
-              Salman Sadik
-            </Link>
-          </motion.div>
+            {personalInfo.name}
+          </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item, index) => (
-              <motion.div
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-1">
+            {navItems.map((item) => (
+              <Link
                 key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
+                href={item.href}
+                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Link
-                  href={item.href}
-                  className="px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
+                {item.name}
+              </Link>
             ))}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
+            <a
+              href={personalInfo.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-3 inline-flex items-center gap-1.5 rounded-md border border-border px-3.5 py-1.5 font-mono text-xs tracking-wide hover:border-primary/60 hover:text-primary transition-colors"
             >
+              Resume
+              <ArrowDown className="h-3 w-3" />
+            </a>
+            <div className="ml-2">
               <ThemeToggle />
-            </motion.div>
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
+          {/* Mobile */}
+          <div className="md:hidden flex items-center gap-1">
             <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="h-10 w-10"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5" />
@@ -96,30 +86,41 @@ export function Navigation() {
             </Button>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border"
-        >
-          <div className="container mx-auto px-4 py-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-md border-b border-border"
+          >
+            <div className="px-6 py-4 space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-2 py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <a
+                href={personalInfo.resume}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 rounded-lg text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+                className="inline-flex items-center gap-1.5 px-2 py-2.5 font-mono text-xs tracking-wide text-primary"
               >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </motion.nav>
+                Resume <ArrowDown className="h-3 w-3" />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }

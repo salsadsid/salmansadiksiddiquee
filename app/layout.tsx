@@ -14,26 +14,52 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://salmansadiksiddiquee.tech";
+
 export const metadata: Metadata = {
-  title: "Salman Sadik Siddiquee | Full Stack Developer",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Salman Sadik Siddiquee | Full-Stack Product Engineer",
+    template: "%s | Salman Sadik Siddiquee",
+  },
   description:
-    "Full Stack Developer specializing in MERN stack with expertise in building scalable web applications using React, Next.js, Node.js, and MongoDB.",
+    "Full-stack engineer (React/Next.js, Node, TypeScript) shipping AI products in production: RAG pipelines, SSE streaming, structured outputs, and billing. 1M+ articles generated, 100k+ users, ~$390K processed.",
   keywords: [
-    "Full Stack Developer",
-    "MERN Stack",
-    "React Developer",
+    "Full-Stack Engineer",
+    "AI Products",
+    "React",
     "Next.js",
-    "Node.js",
-    "MongoDB",
     "TypeScript",
-    "JavaScript",
-    "Web Development",
+    "Node.js",
+    "RAG",
+    "LLM",
+    "Remote Developer",
+    "Bangladesh",
   ],
-  authors: [{ name: "Salman Sadik Siddiquee" }],
+  authors: [{ name: "Salman Sadik Siddiquee", url: siteUrl }],
+  creator: "Salman Sadik Siddiquee",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Salman Sadik Siddiquee | Full Stack Developer",
-    description: "Full Stack Developer specializing in MERN stack",
     type: "website",
+    url: siteUrl,
+    siteName: "Salman Sadik Siddiquee",
+    title: "Salman Sadik Siddiquee | Full-Stack Product Engineer",
+    description:
+      "AI products in production: RAG, SSE streaming, structured outputs, billing. 1M+ articles generated, 100k+ users, ~$390K processed.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Salman Sadik Siddiquee | Full-Stack Product Engineer",
+    description:
+      "AI products in production: RAG, SSE streaming, structured outputs, billing.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

@@ -1,164 +1,94 @@
-"use client";
-
 import { personalInfo } from "@/lib/data";
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
+import { ArrowUpRight, Mail } from "lucide-react";
+import { Reveal } from "./reveal";
+import { SectionHeader } from "./section-header";
 
 export function ContactSection() {
-  const contactMethods = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: personalInfo.email,
-      href: `mailto:${personalInfo.email}`,
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: personalInfo.phone,
-      href: `tel:${personalInfo.phone}`,
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: personalInfo.github,
-      href: `https://github.com/${personalInfo.github}`,
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: personalInfo.linkedin,
-      href: `https://linkedin.com/in/${personalInfo.linkedin}`,
-    },
-  ];
-
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Get In <span className="text-primary">Touch</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach
-            out!
-          </p>
-        </motion.div>
+    <section id="contact" className="py-24">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <SectionHeader index="07" title="Contact" aside="Open to remote roles" />
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="space-y-6"
-            >
-              <Card className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-                <div className="space-y-4">
-                  {contactMethods.map((method, index) => (
-                    <motion.a
-                      key={method.label}
-                      href={method.href}
-                      target={
-                        method.label === "GitHub" || method.label === "LinkedIn"
-                          ? "_blank"
-                          : undefined
-                      }
-                      rel={
-                        method.label === "GitHub" || method.label === "LinkedIn"
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 * index }}
-                      className="flex items-center gap-4 p-4 rounded-lg bg-secondary/50 hover:bg-primary/10 transition-all duration-300 group"
-                    >
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        <method.icon className="h-6 w-6" />
-                      </div>
-                      <div>
-                        <div className="text-sm text-muted-foreground">
-                          {method.label}
-                        </div>
-                        <div className="font-medium">{method.value}</div>
-                      </div>
-                    </motion.a>
-                  ))}
-                </div>
-              </Card>
+        <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] items-start">
+          <Reveal>
+            <h3 className="text-3xl sm:text-4xl font-semibold tracking-tight text-balance leading-tight">
+              Building an AI product that needs to
+              <span className="text-muted-foreground"> survive real users?</span>
+            </h3>
+            <p className="mt-5 max-w-xl text-muted-foreground leading-relaxed">
+              I&apos;m open to international remote roles, full-stack or
+              frontend, especially AI products. Based in Dhaka ({personalInfo.timezone}),
+              comfortable overlapping with EU and US teams.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="inline-flex items-center gap-2 rounded-md bg-foreground text-background px-5 py-2.5 text-sm font-medium hover:opacity-85 transition-opacity"
+              >
+                <Mail className="h-4 w-4" />
+                {personalInfo.email}
+              </a>
+              <a
+                href={personalInfo.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md border border-border px-5 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary transition-colors"
+              >
+                Resume
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+          </Reveal>
 
-              <Card className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-semibold mb-1">Location</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {personalInfo.location}
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="p-8 h-full flex flex-col justify-center">
-                <div className="text-center space-y-6">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                    <Send className="h-10 w-10 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-3">
-                      Let&apos;s Work Together
-                    </h3>
-                    <p className="text-muted-foreground mb-6">
-                      I&apos;m always interested in hearing about new projects
-                      and opportunities. Whether you have a question or just
-                      want to say hi, I&apos;ll try my best to get back to you!
-                    </p>
-                  </div>
-                  <div className="space-y-3">
-                    <Button size="lg" className="w-full group" asChild>
-                      <a href={`mailto:${personalInfo.email}`}>
-                        <Mail className="mr-2 h-5 w-5" />
-                        Send Me an Email
-                        <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          <Reveal delay={0.1}>
+            <dl className="border-t border-border">
+              {[
+                {
+                  label: "GitHub",
+                  value: `github.com/${personalInfo.github}`,
+                  href: `https://github.com/${personalInfo.github}`,
+                },
+                {
+                  label: "LinkedIn",
+                  value: `linkedin.com/in/${personalInfo.linkedin}`,
+                  href: `https://linkedin.com/in/${personalInfo.linkedin}`,
+                },
+                {
+                  label: "Email",
+                  value: personalInfo.email,
+                  href: `mailto:${personalInfo.email}`,
+                },
+                {
+                  label: "Location",
+                  value: `${personalInfo.location} (${personalInfo.timezone})`,
+                },
+              ].map((row) => (
+                <div
+                  key={row.label}
+                  className="grid grid-cols-[6.5rem_1fr] gap-2 border-b border-border py-3.5"
+                >
+                  <dt className="font-mono text-xs tracking-wide text-muted-foreground uppercase pt-0.5">
+                    {row.label}
+                  </dt>
+                  <dd className="text-sm">
+                    {row.href ? (
+                      <a
+                        href={row.href}
+                        target={row.href.startsWith("mailto") ? undefined : "_blank"}
+                        rel={row.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+                        className="group inline-flex items-center gap-1 hover:text-primary transition-colors break-all"
+                      >
+                        {row.value}
+                        <ArrowUpRight className="h-3 w-3 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="w-full"
-                      asChild
-                    >
-                      <a href={`tel:${personalInfo.phone}`}>
-                        <Phone className="mr-2 h-5 w-5" />
-                        Give Me a Call
-                      </a>
-                    </Button>
-                  </div>
+                    ) : (
+                      <span className="text-foreground/85">{row.value}</span>
+                    )}
+                  </dd>
                 </div>
-              </Card>
-            </motion.div>
-          </div>
+              ))}
+            </dl>
+          </Reveal>
         </div>
       </div>
     </section>
