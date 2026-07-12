@@ -307,9 +307,9 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Designed, built, and operated solo. A 1,000-student school runs on it daily.",
     oneLiner:
       "The complete system behind a 1,000-student school: biometric attendance, results, fees, Bengali PDFs, and guardian SMS. Designed, built, and operated by one engineer.",
-    role: "Freelance Software Developer",
+    role: "Software Developer (Contract)",
     company: "H.A.K Academy",
-    period: "2025 - Present · part-time",
+    period: "2025 - Present · contract",
     stack: [
       "React 18",
       "Vite",
@@ -471,10 +471,10 @@ export const experiences: Experience[] = [
     caseStudySlug: "affpilot",
   },
   {
-    title: "Freelance Software Developer",
+    title: "Software Developer (Contract)",
     company: "H.A.K Academy",
     location: "Gazipur, Bangladesh",
-    period: "2025 - Present · part-time",
+    period: "2025 - Present · contract",
     summary: [
       "Designed, built, and operate a school platform solo: 1,000+ students, seven user roles, biometric attendance at 2,000-3,000 punches a day.",
       "Bengali PDF pipelines, a GPA/results engine with rollback, and rate-limited guardian SMS with an emergency kill switch.",
