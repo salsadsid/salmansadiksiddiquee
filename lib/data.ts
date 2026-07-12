@@ -309,7 +309,7 @@ export const caseStudies: CaseStudy[] = [
       "The complete system behind a 1,000-student school: biometric attendance, results, fees, Bengali PDFs, and guardian SMS. Designed, built, and operated by one engineer.",
     role: "Software Developer (Contract)",
     company: "H.A.K Academy",
-    period: "2025 - Present · contract",
+    period: "Jan 2025 - Aug 2026 · contract",
     stack: [
       "React 18",
       "Vite",
@@ -474,7 +474,7 @@ export const experiences: Experience[] = [
     title: "Software Developer (Contract)",
     company: "H.A.K Academy",
     location: "Gazipur, Bangladesh",
-    period: "2025 - Present · contract",
+    period: "Jan 2025 - Aug 2026 · contract",
     summary: [
       "Designed, built, and operate a school platform solo: 1,000+ students, seven user roles, biometric attendance at 2,000-3,000 punches a day.",
       "Bengali PDF pipelines, a GPA/results engine with rollback, and rate-limited guardian SMS with an emergency kill switch.",
