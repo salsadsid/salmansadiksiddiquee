@@ -205,9 +205,9 @@ export const caseStudies: CaseStudy[] = [
     order: "02",
     name: "Device-Lifecycle Platform",
     tagline:
-      "One auditable system replacing spreadsheet-and-email operations for a German medical-device manufacturer.",
+      "One auditable system replacing spreadsheet-and-email operations for a European medical-device manufacturer.",
     oneLiner:
-      "Device registry, warranty automation, AI support triage, and a RAG chatbot for a German neurofeedback manufacturer. I led development as top contributor.",
+      "Device registry, warranty automation, AI support triage, and a RAG chatbot for a European medical-device manufacturer. I led development as top contributor.",
     role: "Full Stack Developer",
     company: "AlgoSoft Technologies Limited",
     period: "Sep 2025 - Present",
@@ -223,18 +223,30 @@ export const caseStudies: CaseStudy[] = [
       "OpenAI",
       "Upstash Vector",
     ],
-    cardMetrics: ["445 devices", "417 clinics", "3 portals"],
+    cardMetrics: ["3 portals", "8 subsystems", "1,100+ commits"],
     headlineMetrics: [
-      { value: "445", label: "devices tracked" },
-      { value: "417", label: "clinics" },
+      {
+        value: "1,100+",
+        label: "commits",
+        detail: "top contributor across backend and frontend",
+      },
       { value: "3", label: "portals", detail: "admin · customer · reseller" },
-      { value: "1,100+", label: "commits", detail: "top contributor" },
+      {
+        value: "8",
+        label: "subsystems shipped",
+        detail: "warranty · triage · RAG · sync · broker · realtime · QMS · LMS",
+      },
+      {
+        value: "2",
+        label: "languages",
+        detail: "EN/DE across notifications and portals",
+      },
     ],
     attribution:
       "Team project at AlgoSoft; I led development as top contributor (1,100+ commits) across backend and frontend. The RAG chatbot was co-built.",
     context: [
-      "A German neurofeedback medical-device manufacturer ran its fleet on spreadsheets and email: device registrations, warranty renewals, support requests, repair logistics. AlgoSoft builds their device-lifecycle platform; I led its development as top contributor with 1,100+ commits.",
-      "The platform covers device registry, warranty administration, support ticketing, and EU-MDR-oriented quality management for 445 devices across 417 clinics, through admin, customer, and white-label reseller portals.",
+      "A European medical-device manufacturer ran its fleet on spreadsheets and email: device registrations, warranty renewals, support requests, repair logistics. AlgoSoft builds their device-lifecycle platform; I led its development as top contributor with 1,100+ commits.",
+      "The platform covers device registry, warranty administration, support ticketing, and EU-MDR-oriented quality management across admin, customer, and white-label reseller portals.",
     ],
     sections: [
       {
@@ -296,20 +308,135 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome: [
       "Spreadsheet- and email-based workflows replaced with one auditable system spanning three portals.",
-      "445 devices across 417 clinics tracked through registry, warranty, support, and quality management.",
+      "A single registry now carries every device through warranty, support, and quality management.",
       "Support intake triaged by AI before a human touches it; documentation answerable through a cited, streaming chatbot.",
     ],
   },
   {
-    slug: "school-platform",
+    slug: "utility-bill-extraction",
     order: "03",
+    name: "Utility-Bill Extraction Engine",
+    tagline:
+      "Scanned utility bills in, audit-ready spreadsheets out \u2014 with a confidence score that says which rows a human still needs to read.",
+    oneLiner:
+      "A document-AI pipeline turning five utilities' PDF bills into validated Excel rows: geometric anchors, two-model consensus, and confidence routing. I owned 63% of the codebase.",
+    role: "Full Stack Developer (Contract)",
+    company: "Simplifai Inc",
+    period: "Jan 2026 - Aug 2026 \u00b7 delivered",
+    stack: [
+      "Next.js 14",
+      "TypeScript",
+      "Firebase",
+      "Firestore",
+      "Google Cloud Vision",
+      "Cloud Tasks",
+      "pdfjs-dist",
+      "ExcelJS",
+      "OpenRouter",
+    ],
+    cardMetrics: ["63% of codebase", "5 bill formats", "12K-line engine"],
+    headlineMetrics: [
+      {
+        value: "63%",
+        label: "of the codebase",
+        detail: "21,769 of 34,602 lines \u00b7 top contributor",
+      },
+      {
+        value: "5",
+        label: "utility bill formats",
+        detail: "plus a generic fallback profile",
+      },
+      {
+        value: "2",
+        label: "models cross-checked",
+        detail: "per-field disagreement drives confidence",
+      },
+      {
+        value: "11.8K",
+        label: "lines, extraction engine",
+        detail: "4,513 of its 6,050-line anchor core are mine",
+      },
+    ],
+    attribution:
+      "Team project at Simplifai Inc; I was top contributor \u2014 80 of 194 commits and 63% of surviving lines \u2014 owning the anchor engine, the two-model pipeline, and Excel export.",
+    context: [
+      "A North American energy-cost consultancy recovers overcharges for commercial clients by auditing their utility bills. The bills arrive as PDFs, many of them scans, and every utility lays its charges out differently. Turning them into spreadsheet rows was manual work measured in hours per building.",
+      "I was top contributor on the platform that replaced that work: 80 of 194 commits, and 21,769 of the codebase's 34,602 surviving TypeScript lines.",
+    ],
+    sections: [
+      {
+        heading: "The pipeline",
+        body: "Eight stages between an uploaded PDF and a validated spreadsheet.",
+        bullets: [
+          "Layout extraction (pdfjs-dist) pulls text with positional geometry, custom-rendered to preserve the spacing that column alignment depends on.",
+          "Format classification matches the bill against five built-in profiles plus a generic fallback; new formats are Firestore documents with detection keywords, cached five minutes, no redeploy.",
+          "Anchor recovery locates labelled values by position on the page, without calling a model.",
+          "Two models then extract independently and their per-field disagreement is recorded, not discarded.",
+          "Anchor values backfill and override model output, then normalization reconciles units, dates, and meter identity.",
+          "Validation applies field-range rules, routes ambiguous rows to an AI judge, then auto-accepts above 0.85 confidence and queues the rest with a computed review priority.",
+          "An accuracy report scores weighted field-level correctness against manually verified golden records.",
+          "Excel export writes per-format column templates, themselves Firestore-configurable.",
+        ],
+      },
+      {
+        heading: "Geometric anchors",
+        body: "The 6,050-line core of the system, and the part I own most of.",
+        bullets: [
+          "An anchor that finds a labelled total at a known position is free, deterministic, and returns the same answer on every run \u2014 none of which is true of a model call.",
+          "Anchors are defined per format and edited through an admin surface rather than a deploy.",
+        ],
+      },
+      {
+        heading: "The review surface",
+        bullets: [
+          "Upload with live job-progress tracking, paginated job listings, and a job-detail view with collapsible validation results and per-row accuracy scoring.",
+          "An export modal with column pruning and local save, so a reviewer ships the sheet without leaving the app.",
+        ],
+      },
+      {
+        heading: "The long tail of formats",
+        body: "Where most of the engineering actually went.",
+        bullets: [
+          "Continuation pages that split a single statement across sheets.",
+          "Multi-month and multi-meter clusters printed on one bill.",
+          "Duplicate anchors resolved per statement rather than per document.",
+        ],
+      },
+    ],
+    decisions: [
+      {
+        title: "Anchors before the model, not after it",
+        body: "Geometric extraction costs nothing and repeats exactly. A confident anchor can skip the model call entirely \u2014 cheaper per bill, and the same document extracts identically every time, which is what makes a regression detectable at all.",
+      },
+      {
+        title: "Two models disagreeing beats one model's self-reported confidence",
+        body: "A single model reports high confidence on wrong answers. Independent agreement between two is a signal you can actually route on, and it is what the 0.85 auto-accept threshold sits on.",
+      },
+      {
+        title: "Configuration in Firestore, not in code",
+        body: "Anchors, export headers, detection keywords, and validation thresholds are all admin-editable at runtime behind per-provider feature flags. Every utility eventually redesigns its bill; that shouldn't need a deploy.",
+      },
+      {
+        title: "The failure mode worth designing against is the silent one",
+        body: "A utility changed its bill design mid-2025. New bills parsed cleanly, so nothing looked broken \u2014 but on the older ones the parser stopped reading early and dropped the total without raising anything. Errors announce themselves; wrong-but-plausible numbers don't.",
+      },
+    ],
+    outcome: [
+      "Bills that took hours of manual transcription per building now return a validated spreadsheet from an upload.",
+      "Every row carries a confidence score, so review effort goes to the rows that need it instead of all of them.",
+      "New bill formats ship as configuration rather than code, and the client's team adds them without an engineer.",
+    ],
+  },
+  {
+    slug: "school-platform",
+    order: "04",
     name: "School Management Platform",
     tagline: "Designed, built, and operated solo. A 1,000-student school runs on it daily.",
     oneLiner:
       "The complete system behind a 1,000-student school: biometric attendance, results, fees, Bengali PDFs, and guardian SMS. Designed, built, and operated by one engineer.",
     role: "Software Developer (Contract)",
     company: "H.A.K Academy",
-    period: "Jan 2025 - Aug 2026 · contract",
+    period: "Jan 2024 - Aug 2025 · contract",
     stack: [
       "React 18",
       "Vite",
@@ -454,10 +581,21 @@ export const experiences: Experience[] = [
     location: "Dhaka, Bangladesh",
     period: "Sep 2025 - Present",
     summary: [
-      "Leading development (top contributor, 1,100+ commits) of a device-lifecycle platform for a German medical-device manufacturer: 445 devices across 417 clinics.",
+      "Leading development (top contributor, 1,100+ commits) of a device-lifecycle platform for a European medical-device manufacturer, spanning admin, customer, and white-label reseller portals.",
       "Shipped the warranty-renewal pipeline, AI email triage, RAG support chatbot, Shopify event broker, and an LMS with an AI quiz generator.",
     ],
     caseStudySlug: "device-platform",
+  },
+  {
+    title: "Full Stack Developer (Contract)",
+    company: "Simplifai Inc",
+    location: "Scarborough, ON, Canada \u00b7 Remote",
+    period: "Jan 2026 - Present \u00b7 contract",
+    summary: [
+      "Principal engineer on a delivered document-AI platform that turns scanned utility bills into audit-ready spreadsheets: 63% of the codebase, top contributor across five bill formats.",
+      "Built the geometric anchor engine and two-model extraction pipeline; also shipped analytics reporting features and the production-hardening pass (rate limiting, key custody, crash reporting, CI, accessibility) on a mobile language-learning app now heading to release.",
+    ],
+    caseStudySlug: "utility-bill-extraction",
   },
   {
     title: "Frontend React Developer",
@@ -474,7 +612,7 @@ export const experiences: Experience[] = [
     title: "Software Developer (Contract)",
     company: "H.A.K Academy",
     location: "Gazipur, Bangladesh",
-    period: "Jan 2025 - Aug 2026 · contract",
+    period: "Jan 2024 - Aug 2025 · contract",
     summary: [
       "Designed, built, and operate a school platform solo: 1,000+ students, seven user roles, biometric attendance at 2,000-3,000 punches a day.",
       "Bengali PDF pipelines, a GPA/results engine with rollback, and rate-limited guardian SMS with an emergency kill switch.",
@@ -490,12 +628,12 @@ export const skills: Record<string, string> = {
   Backend:
     "Node.js, Express, REST & GraphQL APIs, Socket.io, queue & cron pipelines (QStash, Cloud Tasks), JWT, OAuth 2.0, RBAC",
   "AI / LLM":
-    "OpenAI & Gemini APIs, RAG (vector search, embeddings, reranking), structured outputs, SSE streaming",
+    "OpenAI & Gemini APIs, RAG (vector search, embeddings, reranking), structured outputs, SSE streaming, multi-model consensus & disagreement routing, OpenRouter",
   Databases: "MongoDB (Mongoose), PostgreSQL, MySQL (Prisma), Firestore",
   "Integrations & Payments":
-    "Stripe, PayPal, SSLCommerz, bKash/Nagad, Shopify & WordPress APIs, SMS gateways, ZKTeco biometrics",
+    "Stripe, PayPal, SSLCommerz, bKash/Nagad, Shopify & WordPress APIs, SMS gateways, ZKTeco biometrics, PDF/OCR extraction (pdfjs-dist), ExcelJS",
   "Cloud, Ops & Testing":
-    "Vercel, DigitalOcean (VPS, PM2), Firebase/GCP Functions, GitHub Actions CI, Sentry, Vitest, Jest, React Testing Library",
+    "Vercel, DigitalOcean (VPS, PM2), Firebase/GCP Functions, Google Cloud Vision, Cloud Tasks, GitHub Actions CI, Sentry, Vitest, Jest, React Testing Library",
 };
 
 export const education = {
