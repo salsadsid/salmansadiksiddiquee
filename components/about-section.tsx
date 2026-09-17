@@ -39,7 +39,7 @@ export function AboutSection() {
               <p>
                 Since 2023 I&apos;ve been the top contributor on an AI content
                 platform used by 100k+ people, led development of a
-                device-lifecycle platform for a German medical-device
+                device-lifecycle platform for a European medical-device
                 manufacturer, and built a school management system that I still
                 operate solo for 1,000+ students.
               </p>
