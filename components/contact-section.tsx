@@ -59,6 +59,11 @@ export function ContactSection() {
                   href: `mailto:${personalInfo.email}`,
                 },
                 {
+                  label: "WhatsApp",
+                  value: personalInfo.whatsapp,
+                  href: `https://wa.me/${personalInfo.whatsapp.replace("+", "")}`,
+                },
+                {
                   label: "Location",
                   value: `${personalInfo.location} (${personalInfo.timezone})`,
                 },

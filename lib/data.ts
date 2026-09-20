@@ -67,6 +67,7 @@ export const personalInfo = {
   email: "salman.dnj@gmail.com",
   github: "salsadsid",
   linkedin: "salsadsid",
+  whatsapp: "+8801780666043",
   location: "Dhaka, Bangladesh",
   timezone: "UTC+6",
   resume: "/Salman_Siddiquee_FullStack.pdf",
