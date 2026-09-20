@@ -244,7 +244,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     attribution:
-      "Team project at AlgoSoft; I led development as top contributor (1,100+ commits) across backend and frontend. The RAG chatbot was co-built.",
+      "Team project at AlgoSoft; I lead a team of 4 engineers and am top contributor (1,100+ commits) across backend and frontend. The RAG chatbot was co-built.",
     context: [
       "A European medical-device manufacturer ran its fleet on spreadsheets and email: device registrations, warranty renewals, support requests, repair logistics. AlgoSoft builds their device-lifecycle platform; I led its development as top contributor with 1,100+ commits.",
       "The platform covers device registry, warranty administration, support ticketing, and EU-MDR-oriented quality management across admin, customer, and white-label reseller portals.",
@@ -582,7 +582,7 @@ export const experiences: Experience[] = [
     location: "Dhaka, Bangladesh",
     period: "Sep 2025 - Present",
     summary: [
-      "Leading development (top contributor, 1,100+ commits) of a device-lifecycle platform for a European medical-device manufacturer, spanning admin, customer, and white-label reseller portals.",
+      "Leading a team of 4 engineers as top contributor on a device-lifecycle platform for a European medical-device manufacturer, spanning admin, customer, and white-label reseller portals.",
       "Shipped the warranty-renewal pipeline, AI email triage, RAG support chatbot, Shopify event broker, and an LMS with an AI quiz generator.",
     ],
     caseStudySlug: "device-platform",
@@ -604,7 +604,7 @@ export const experiences: Experience[] = [
     location: "Dhaka, Bangladesh",
     period: "Oct 2023 - Sep 2025",
     summary: [
-      "Top contributor (~920 of 1,860 commits) to the React architecture behind 1M+ AI-generated articles for 100k+ users.",
+      "Sole frontend developer at first, then top frontend contributor as the team grew to 8, on the React architecture behind 1M+ AI-generated articles for 100k+ users.",
       "Built the generation workflows, write-to-publish pipeline, and billing that processed ~$390K; founding frontend engineer of Flippium (79% of commits).",
     ],
     caseStudySlug: "affpilot",
