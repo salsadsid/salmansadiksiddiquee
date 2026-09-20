@@ -34,6 +34,14 @@ export function Footer() {
             Email
           </a>
           <a
+            href={`https://wa.me/${personalInfo.whatsapp.replace("+", "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+          >
+            WhatsApp
+          </a>
+          <a
             href={personalInfo.siteRepo}
             target="_blank"
             rel="noopener noreferrer"
