@@ -44,7 +44,7 @@ export function HeroSection() {
               className="mt-7 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed"
             >
               RAG pipelines, SSE-streaming interfaces, and the billing systems
-              around them. About three years shipping production SaaS used by
+              around them. More than three years shipping production SaaS used by
               100k+ people, end to end.
             </motion.p>
 
