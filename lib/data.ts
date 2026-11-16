@@ -123,13 +123,13 @@ export const caseStudies: CaseStudy[] = [
       { value: "1M+", label: "articles generated", detail: "2B+ words, sustained 2,000+/day" },
       { value: "100k+", label: "registered users" },
       { value: "~$390K", label: "processed", detail: "11,000+ transactions" },
-      { value: "290", label: "reusable components", detail: "92 pages · 138 endpoints" },
+      { value: "100+", label: "site sales on Flippium", detail: "up to $3K each" },
     ],
     attribution:
-      "Top contributor to the platform frontend: ~920 of 1,860 commits. Founding frontend engineer of Flippium: 79% of commits.",
+      "Team project. I was the sole frontend developer at first, then top frontend contributor as the team grew to 8, and founding frontend engineer of Flippium.",
     context: [
       "Affpilot is an AI auto-blogging SaaS: users pick keywords, configure tone and language, and the platform researches, writes, and publishes SEO articles to their sites. When I joined it was an early-stage product; over the next two years it grew to 100k+ registered users and more than a million generated articles.",
-      "I built and maintained the React component architecture (290 reusable components across 92 routed pages, integrating 138 REST endpoints) as top contributor with roughly 920 of the codebase's 1,860 commits.",
+      "I built and maintained the React component architecture, as the sole frontend developer at first and then as top frontend contributor as the team grew to 8.",
     ],
     sections: [
       {
@@ -170,7 +170,7 @@ export const caseStudies: CaseStudy[] = [
         bullets: [
           "Multi-step listing wizard, marketplace filtering, and offer negotiation.",
           "Buyer, seller, and moderator messaging with optimistic updates, infinite scroll, and image/emoji support.",
-          "Facilitated 100+ site sales at up to $3K each; I authored 79% of commits.",
+          "Facilitated 100+ site sales at up to $3K each.",
         ],
       },
       {
@@ -192,7 +192,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "RTK Query as the single data layer",
-        body: "138 endpoints with tag-based cache invalidation instead of hand-rolled fetching, so generation status, credit balance, and publishing state stay consistent across 92 pages without manual refetch choreography.",
+        body: "One data layer with tag-based cache invalidation instead of hand-rolled fetching, so generation status, credit balance, and publishing state stay consistent across the app without manual refetch choreography.",
       },
     ],
     outcome: [
@@ -224,11 +224,11 @@ export const caseStudies: CaseStudy[] = [
       "OpenAI",
       "Upstash Vector",
     ],
-    cardMetrics: ["3 portals", "8 subsystems", "1,100+ commits"],
+    cardMetrics: ["3 portals", "8 subsystems", "Team of 4"],
     headlineMetrics: [
       {
-        value: "1,100+",
-        label: "commits",
+        value: "4",
+        label: "engineers led",
         detail: "top contributor across backend and frontend",
       },
       { value: "3", label: "portals", detail: "admin · customer · reseller" },
@@ -244,9 +244,9 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     attribution:
-      "Team project at AlgoSoft; I lead a team of 4 engineers and am top contributor (1,100+ commits) across backend and frontend. The RAG chatbot was co-built.",
+      "Team project at AlgoSoft; I lead a team of 4 engineers and am top contributor across backend and frontend. The RAG chatbot was co-built.",
     context: [
-      "A European medical-device manufacturer ran its fleet on spreadsheets and email: device registrations, warranty renewals, support requests, repair logistics. AlgoSoft builds their device-lifecycle platform; I led its development as top contributor with 1,100+ commits.",
+      "A European medical-device manufacturer ran its fleet on spreadsheets and email: device registrations, warranty renewals, support requests, repair logistics. AlgoSoft builds their device-lifecycle platform; I led its development as top contributor.",
       "The platform covers device registry, warranty administration, support ticketing, and EU-MDR-oriented quality management across admin, customer, and white-label reseller portals.",
     ],
     sections: [
@@ -320,7 +320,7 @@ export const caseStudies: CaseStudy[] = [
     tagline:
       "Scanned utility bills in, audit-ready spreadsheets out \u2014 with a confidence score that says which rows a human still needs to read.",
     oneLiner:
-      "A document-AI pipeline turning five utilities' PDF bills into validated Excel rows: geometric anchors, two-model consensus, and confidence routing. I owned 63% of the codebase.",
+      "A document-AI pipeline turning five utilities' PDF bills into validated Excel rows: geometric anchors, two-model consensus, and confidence routing. I was top contributor.",
     role: "Full Stack Developer (Contract)",
     company: "Simplifai Inc",
     period: "Jan 2026 - Aug 2026 \u00b7 delivered",
@@ -335,12 +335,12 @@ export const caseStudies: CaseStudy[] = [
       "ExcelJS",
       "OpenRouter",
     ],
-    cardMetrics: ["63% of codebase", "5 bill formats", "12K-line engine"],
+    cardMetrics: ["5 bill formats", "2-model consensus", "0.85 auto-accept"],
     headlineMetrics: [
       {
-        value: "63%",
-        label: "of the codebase",
-        detail: "21,769 of 34,602 lines \u00b7 top contributor",
+        value: "0.85",
+        label: "auto-accept threshold",
+        detail: "rows below it queue for human review",
       },
       {
         value: "5",
@@ -353,16 +353,16 @@ export const caseStudies: CaseStudy[] = [
         detail: "per-field disagreement drives confidence",
       },
       {
-        value: "11.8K",
-        label: "lines, extraction engine",
-        detail: "4,513 of its 6,050-line anchor core are mine",
+        value: "8",
+        label: "pipeline stages",
+        detail: "from uploaded PDF to validated spreadsheet",
       },
     ],
     attribution:
-      "Team project at Simplifai Inc; I was top contributor \u2014 80 of 194 commits and 63% of surviving lines \u2014 owning the anchor engine, the two-model pipeline, and Excel export.",
+      "Team project at Simplifai Inc; I was top contributor, owning the anchor engine, the two-model pipeline, and Excel export.",
     context: [
       "A North American energy-cost consultancy recovers overcharges for commercial clients by auditing their utility bills. The bills arrive as PDFs, many of them scans, and every utility lays its charges out differently. Turning them into spreadsheet rows was manual work measured in hours per building.",
-      "I was top contributor on the platform that replaced that work: 80 of 194 commits, and 21,769 of the codebase's 34,602 surviving TypeScript lines.",
+      "I was top contributor on the platform that replaced that work.",
     ],
     sections: [
       {
@@ -381,7 +381,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         heading: "Geometric anchors",
-        body: "The 6,050-line core of the system, and the part I own most of.",
+        body: "The core of the system, and the part I own most of.",
         bullets: [
           "An anchor that finds a labelled total at a known position is free, deterministic, and returns the same answer on every run \u2014 none of which is true of a model call.",
           "Anchors are defined per format and edited through an admin surface rather than a deploy.",
@@ -452,12 +452,12 @@ export const caseStudies: CaseStudy[] = [
     headlineMetrics: [
       { value: "1,000+", label: "students", detail: "across 12 grade levels" },
       { value: "2-3k", label: "biometric punches/day" },
-      { value: "7", label: "user roles", detail: "35 role-gated pages" },
-      { value: "137", label: "REST endpoints", detail: "23 data models" },
+      { value: "7", label: "user roles", detail: "per-route role middleware" },
+      { value: "1", label: "engineer", detail: "designed, built, and operated solo" },
     ],
     attribution: "Solo project: every model, endpoint, page, and deployment is mine, and I operate it in production.",
     context: [
-      "A private school in Gazipur ran admissions, attendance, fees, exams, and guardian communication on paper. I designed and built their entire platform solo, and still operate it: 23 data models, ~137 REST endpoints, JWT auth with per-route role middleware for seven user roles, running on Vercel and a DigitalOcean VPS under a PM2 cluster.",
+      "A private school in Gazipur ran admissions, attendance, fees, exams, and guardian communication on paper. I designed and built their entire platform solo, and still operate it: JWT auth with per-route role middleware for seven user roles, running on Vercel and a DigitalOcean VPS under a PM2 cluster.",
     ],
     sections: [
       {
@@ -491,7 +491,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "Operational views",
         bullets: [
-          "35 role-gated dashboard pages across seven roles, on a tag-invalidated RTK Query data layer with offline-persisted sessions.",
+          "Role-gated dashboards for seven roles, on a tag-invalidated RTK Query data layer with offline-persisted sessions.",
           "A full-screen “Now Teaching” board auto-refreshing every 30 seconds under a locked-down display account, plus attendance dashboards with absentee lists.",
         ],
       },
@@ -593,7 +593,7 @@ export const experiences: Experience[] = [
     location: "Scarborough, ON, Canada \u00b7 Remote",
     period: "Jan 2026 - Present \u00b7 contract",
     summary: [
-      "Principal engineer on a delivered document-AI platform that turns scanned utility bills into audit-ready spreadsheets: 63% of the codebase, top contributor across five bill formats.",
+      "Top contributor on a delivered document-AI platform that turns scanned utility bills into audit-ready spreadsheets across five bill formats.",
       "Built the geometric anchor engine and two-model extraction pipeline; also shipped analytics reporting features and the production-hardening pass (rate limiting, key custody, crash reporting, CI, accessibility) on a mobile language-learning app now heading to release.",
     ],
     caseStudySlug: "utility-bill-extraction",
@@ -605,7 +605,7 @@ export const experiences: Experience[] = [
     period: "Oct 2023 - Sep 2025",
     summary: [
       "Sole frontend developer at first, then top frontend contributor as the team grew to 8, on the React architecture behind 1M+ AI-generated articles for 100k+ users.",
-      "Built the generation workflows, write-to-publish pipeline, and billing that processed ~$390K; founding frontend engineer of Flippium (79% of commits).",
+      "Built the generation workflows, write-to-publish pipeline, and billing that processed ~$390K; founding frontend engineer of Flippium.",
     ],
     caseStudySlug: "affpilot",
   },
@@ -630,6 +630,8 @@ export const skills: Record<string, string> = {
     "Node.js, Express, REST & GraphQL APIs, Socket.io, queue & cron pipelines (QStash, Cloud Tasks), JWT, OAuth 2.0, RBAC",
   "AI / LLM":
     "OpenAI & Gemini APIs, RAG (vector search, embeddings, reranking), structured outputs, SSE streaming, multi-model consensus & disagreement routing, OpenRouter",
+  "AI-Assisted Development":
+    "Claude Code (skills, subagents, MCP, parallel git worktrees), Cursor, Codex",
   Databases: "MongoDB (Mongoose), PostgreSQL, MySQL (Prisma), Firestore",
   "Integrations & Payments":
     "Stripe, PayPal, SSLCommerz, bKash/Nagad, Shopify & WordPress APIs, SMS gateways, ZKTeco biometrics, PDF/OCR extraction (pdfjs-dist), ExcelJS",

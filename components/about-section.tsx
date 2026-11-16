@@ -48,6 +48,11 @@ export function AboutSection() {
                 biometric devices, SMS gateways, printed report cards) and AI
                 features that hold up in production, not just in a demo.
               </p>
+              <p>
+                I work with AI coding agents every day (Claude Code, Cursor,
+                Codex). They speed up the typing; the design, the review, and
+                what ships stay my responsibility.
+              </p>
             </div>
 
             <dl className="mt-10 max-w-2xl">
